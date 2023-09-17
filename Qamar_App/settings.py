@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'Qamar_App.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'qamar',
+        'NAME': 'asaxiy',
         'USER': 'postgres',
         'PASSWORD': 'hacker',
         'HOST': 'localhost',
@@ -124,7 +124,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
 
 
 # media
