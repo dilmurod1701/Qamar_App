@@ -10,6 +10,14 @@ class Salomatlik(ListView):
     template_name = 'pages/salomatlik.html'
     context_object_name = 'salomatlik'
 
+# rahmatjon
+class Post(LoginRequiredMixin, CreateView):
+    model = ad
+    fields = ['product_img', 'product_name', 'description', 'price', 'location', 'phone_number']
+    template_name = 'pages/posts.html'
+    success_url = '/'
+    login_url = 'login'
+
 
 class Kitoblar(ListView):
     model = kitoblar
