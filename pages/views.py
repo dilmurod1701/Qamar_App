@@ -1,5 +1,7 @@
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
+
 
 from .models import ad , salomatlik, kitoblar, quron, offis, ibodat, sovga, parfyum, gozallik
 # Create your views here.
