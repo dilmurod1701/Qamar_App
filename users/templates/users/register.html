@@ -129,17 +129,21 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_table }}
+<!--            <button class="btn" type="submit"> <a href="{% url 'home' %}">Sign In</a></button>-->
             <h1>
                 Create Account
             </h1>
             <div class="input-box">
+<!--                <input type="text" placeholder="Username" name="username_input" class="inputone" required>-->
 
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
+<!--                <input type="email" placeholder="Email" name="email_input" class="inputone" required>-->
                 <i class='bx bxs-envelope'></i>
             </div>
             <div class="input-box">
+<!--                <input type="password" name="password_input" placeholder="Password" required>-->
                 <i class='bx bxs-lock-alt'></i>
             </div>
             <button class="btn" type="submit"> <a href="{% url 'home' %}">Sign In</a></button>
