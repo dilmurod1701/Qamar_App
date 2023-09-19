@@ -14,7 +14,8 @@ class ad(models.Model):
     location = models.CharField(max_length=80)
 
     class Meta:
-        ordering = ['-post_date']
+        db_table = 'products'
+        # ordering = ['-post_date']
 
     def str(self):
         return f'{self.product_name}'

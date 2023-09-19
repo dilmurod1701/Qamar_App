@@ -8,419 +8,98 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-
-        }
-        ul {
-            list-style: none;
-        }
-
-        .nav1 {
-            position: absolute;
-            top: 55px;
-            left: 89%;
-            background-color: rgb(60, 151, 236);
-            color: white;
-            border: none;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            margin-left: 19px;
-        }
-
-        .nav1:hover {
-            opacity: 0.8;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15s);
-        }
-
-        .nav1:active {
-            opacity: 0.5;
-        }
-
-        .nav2 {
-            position: absolute;
-            top: 55px;
-            left: 95%;
-            background-color: rgb(60, 151, 236);
-            color: black;
-            border: none;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            margin-right: 8px;
-        }
-
-        .nav2:hover {
-            opacity: 0.8;
-        }
-
-        .nav2:active {
-            opacity: 0.5;
-        }
-
-        .header {
-            padding: 20px;
-            padding-left: 80px;
-            background-color: #f7f8f8;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .top-bar-items {
-            display: inline-block;
-            padding: 10px;
-            margin-right: 160px;
-        }
-
-        .header-bottom {
-            padding-top: 10px;
-        }
-
-        .search {
-            width: 50vw;
-            padding: 7px;
-        }
-
-        .fa-magnifying-glass {
-            background-color: #002f34;
-            color: #fff;
-            padding: 8px;
-            border-radius: 5px;
-        }
-
-        .top-bar-icons {
-            padding: 20px;
-            font-size: 20px;
-        }
-
-        .header-img {
-            padding: 0 80px;
-            border-radius: 5px;
-        }
-
-        .head-img {
-            width: 100%;
-            border-radius: 5px;
-            height: 600px;
-        }
-
-        .card {
-            color: black;
-            max-width: 200px;
-            display: inline-block;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-            margin: 20px 20px;
-            padding-right: 10px;
-            margin-left: 20px;
-        }
-
-        .card > img {
-            width: 150px;
-        }
-
-        .tavsiya {
-            padding: 0 80px;
-            margin-top: 90px;
-        }
-
-        .kopsotilgan {
-            padding: 0 80px;
-            margin-top: 90px;
-        }
-
-        .ad-card {
-            display: inline-block;
-            border: 1px solid #bfbfbf;
-            width: 300px;
-            margin: 20px 5px;
-            border-radius: 5px;
-            overflow: hidden;
-            margin-left: 35px;
-        }
-
-        .ad-card img {
-            width: 100%;
-            height: 350px;
-        }
-
-        .detail {
-            font-weight: bold;
-            padding: 10px;
-        }
-
-        .stars {
-            padding: 10px;
-        }
-
-        .des {
-            padding: 10px;
-        }
-
-        .price {
-            padding: 10px;
-        }
-
-        .text {
-            text-align: center;
-        }
-
-        .button {
-            background-color: rgb(0, 200, 0);
-            color: white;
-            border: none;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            cursor: pointer;
-        }
-    </style>
 {% endblock heading %}
 
 
 {% block content %}
-    <nav>
-        <ul class="nav_bar">
-            <li class="nav1"><a class="nav_link" href="{% url 'login' %}">Login</a></li>
-        </ul>
-    </nav>
-    <div class="header">
-        <div class="header-bottom">
-            <div class="top-bar-items">
-            </div>
-            <div class="top-bar-items">
-                <input class="search" type="search" placeholder="Search"><i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div class="top-bar-items">
-                <a href="{% url 'post' %}"><i class="fa-regular fa-square-plus"></i></a>
-                <a href=""><i class="fa-solid fa-phone top-bar-icons"></i></a>
-                <a href=""><i class="fa-solid fa-thumbtack top-bar-icons"></i></a>
-                <a href=""><i class="fa-regular fa-user top-bar-icons"></i></a>
-                <a href=""><i class="fa-solid fa-bag-shopping top-bar-icons"></i></a>
-            </div>
+<div class="header">
+    <div class="header-bottom">
+        <div class="top-bar-items">
+            <a href="new/"><i class="fa-solid fa-square-plus top-bar-icons"></i></a>
+            <a href=""><i class="fa-regular fa-bookmark top-bar-icons"></i></a>
+            <a href=""><i class="fa-solid fa-cart-shopping top-bar-icons"></i></a>
+            <a href="signup/">Sign Up</a>
+        </div>
+        <div class="top-bar-items">
+            <input class="search" type="search" placeholder="Search"><i class="fa-solid fa-magnifying-glass"></i>
         </div>
     </div>
+</div>
 
+<div>
+    <div class="main-card">
+        <div class="card">
+            <a href="{% url 'quron' %}">
+                <img src="https://qamar.uz/cdn/shop/files/Group_7_180x.png?v=1671615373">
+                <p>Qur'oni Karim</p>
+            </a>
+        </div>
+        <div class="card">
+            <a href="{% url 'kitoblar' %}">
+                <img src="https://qamar.uz/cdn/shop/files/Group_8_180x.png?v=1671615373">
+                <p class="kitoblar">Kitoblar</p>
+            </a>
+        </div>
+        <div class="card">
+            <a href="{% url 'ibodat' %}">
+                <img src="https://qamar.uz/cdn/shop/files/Group_9_180x.png?v=1671615373">
+                <p>Ibodat anjomlari</p>
+            </a>
+        </div>
+        <div class="card">
+            <a href="{% url 'uyoffis' %}">
+                <img src="https://qamar.uz/cdn/shop/files/Group_10_180x.png?v=1671615373">
+                <p>Uy va ofis uchun</p>
+            </a>
+        </div>
+        <div class="card">
+            <a href="{% url 'sovga' %}">
+                <img src="https://qamar.uz/cdn/shop/files/Group_11_180x.png?v=1671615373">
+                <p>Sovg'a to'plamlari</p>
+            </a>
+        </div>
+        <div class="card">
+            <a href="{% url 'parfyum' %}">
+                <img src="https://qamar.uz/cdn/shop/files/Photo_1_180x.png?v=1671615416">
+                <p>Parfyum va kasmetika</p>
+            </a>
+        </div>
+        <div class="card">
+            <a href="{% url 'gozallik' %}">
+                <img src="https://qamar.uz/cdn/shop/files/Photo-1_180x.png?v=1671615416">
+                <p>Go'zallik</p>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<div class="tavsiya">
+    <h1 class="text">Yangi mahsulotar</h1>
     <div>
-        <div class="header-img">
-            <img class="head-img" src="https://www.parfumarabia.lt/images/uploader/sa/sayaad-al-quloob-1.jpeg">
-        </div>
+        {% for i in item %}
+            <div class="ad-card">
+                <img src="{{ i.product_img.url }}">
+                <a class="detail" href="ad/{{ i.id }}"><p class="des">{{ i.product_name }}</p></a>
+                <div class="stars">
+                    <p>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </p>
+                </div>
+            <div class="price">
+                <p>{{ i.price }} so'm</p>
+            </div>
+                <a href="ad/{{ i.id }}"><button class="button" type="submit">XARID QILISH</button></a>
+            </div>
+        {% endfor %}
     </div>
+</div>
 
-    <div>
-        <div>
-            <div class="card">
-                <a href="{% url 'quron' %}">
-                    <img src="https://qamar.uz/cdn/shop/files/Group_7_180x.png?v=1671615373">
-                    <p>Qur'oni Karim</p>
-                </a>
-            </div>
-            <div class="card">
-                <a href="{% url 'kitoblar' %}">
-                    <img src="https://qamar.uz/cdn/shop/files/Group_8_180x.png?v=1671615373">
-                    <p class="kitoblar">Kitoblar</p>
-                </a>
-            </div>
-            <div class="card">
-                <a href="{% url 'ibodat' %}">
-                    <img src="https://qamar.uz/cdn/shop/files/Group_9_180x.png?v=1671615373">
-                    <p>Ibodat anjomlari</p>
-                </a>
-            </div>
-            <div class="card">
-                <a href="{% url 'uyoffis' %}">
-                    <img src="https://qamar.uz/cdn/shop/files/Group_10_180x.png?v=1671615373">
-                    <p>Uy va ofis uchun</p>
-                </a>
-            </div>
-            <div class="card">
-                <a href="{% url 'sovga' %}">
-                    <img src="https://qamar.uz/cdn/shop/files/Group_11_180x.png?v=1671615373">
-                    <p>Sovg'a to'plamlari</p>
-                </a>
-            </div>
-            <div class="card">
-                <a href="{% url 'parfyum' %}">
-                    <img src="https://qamar.uz/cdn/shop/files/Photo_1_180x.png?v=1671615416">
-                    <p>Parfyum va kasmetika</p>
-                </a>
-            </div>
-            <div class="card">
-                <a href="{% url 'gozallik' %}">
-                    <img src="https://qamar.uz/cdn/shop/files/Photo-1_180x.png?v=1671615416">
-                    <p>Go'zallik</p>
-                </a>
-            </div>
-            <div class="card">
-                <a href="{% url 'salomatlik' %}">
-                    <img src="https://qamar.uz/cdn/shop/files/Photo-2_ce643362-713a-4dfd-80ff-c95ab128c638_180x.png?v=1671615416">
-                    <p>Salomatlik</p>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="tavsiya">
-        <h1 class="text">Yangi mahsulotar</h1>
-        <div>
-            <div class="ad-card">
-                <div>
-                    <img src="https://qamar.uz/cdn/shop/products/29c0700d-1098-4362-bba7-e26ae3657b5a_709c37f6-2771-45b4-b2e8-afb61f43f152_360x.jpg?v=1683728288">
-                </div>
-                <div>
-                <a class="detail" href=""><p class="des">RIZVON</p></a>
-                </div>
-                <div class="stars">
-                    <p>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
-                </div>
-            <div class="price">
-                <p>
-                    40 000 so'm
-                </p>
-            </div>
-                <a href=""><button class="button" type="submit">XARID QILISH</button></a>
-            </div>
-
-            <div class="ad-card">
-                <div>
-                    <img src="https://qamar.uz/cdn/shop/products/6262a713-f39a-4351-a68c-8a0b1e9c5685_360x.jpg?v=1683728278">
-                </div>
-                <div>
-                <a class="detail" href=""><p class="des">GUIENA 100ML</p></a>
-                </div>
-                <div class="stars">
-                    <p>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
-                </div>
-            <div class="price">
-                <p>
-                    405,000 so'm
-                </p>
-            </div>
-                <a href=""><button class="button" type="submit">XARID QILISH</button></a>
-            </div>
-
-            <div class="ad-card">
-                <div>
-                    <img src="https://qamar.uz/cdn/shop/products/76edad39-b5bb-4a81-bc74-77e955abff80_360x.jpg?v=1683728277">
-                </div>
-                <div>
-                <a class="detail" href=""><p class="des">LAMSA BODY..</p></a>
-                </div>
-                <div class="stars">
-                    <p>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
-                </div>
-            <div class="price">
-                <p>
-                    80 000 so'm
-                </p>
-            </div>
-                <a href=""><button class="button" type="submit">XARID QILISH</button></a>
-            </div>
-
-            <div class="ad-card">
-                <div>
-                    <img src="https://qamar.uz/cdn/shop/products/3241784e-7d6f-42c1-9473-b4b18f246a29_360x.jpg?v=1683728275">
-                </div>
-                <div>
-                <a class="detail" href=""><p class="des">LAMSA BODY..</p></a>
-                </div>
-                <div class="stars">
-                    <p>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
-                </div>
-            <div class="price">
-                <p>
-                    80 000 so'm
-                </p>
-            </div>
-                <a href=""><button class="button" type="submit">XARID QILISH</button></a>
-            </div>
-
-            <div class="ad-card">
-                <div>
-                    <img src="https://qamar.uz/cdn/shop/products/c1549663-5d47-4253-b45d-567f1b21281d_360x.jpg?v=1683728274">
-                </div>
-                <div>
-                <a class="detail" href=""><p class="des">Astute White</p></a>
-                </div>
-                <div class="stars">
-                    <p>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
-                </div>
-            <div class="price">
-                <p>
-                    215,000 so'm
-                </p>
-            </div>
-                <a href="https://qamar.uz/"><button class="button" type="submit">XARID QILISH</button></a>
-            </div>
-
-            {% for i in ad %}
-                <div class="ad-card">
-                    <div>
-                        <img src="{{ i.product_img.url }}">
-                    </div>
-                    <div>
-                    <a class="detail" href="ad/{{ i.id }}"><p class="des">{{ i.product_name }}</p></a>
-                    </div>
-                    <div class="stars">
-                        <p>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </p>
-                    </div>
-                <div class="price">
-                    <p>
-                        {{ i.price }} so'm
-                    </p>
-                </div>
-                    <a href="ad/{{ i.id }}"><button class="button" type="submit">XARID QILISH</button></a>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-
-    <div class="kopsotilgan">
+    <!-- <div class="kopsotilgan">
         <h1 class="text">Eng kop sotilgan</h1>
         <div>
             <div class="ad-card">
@@ -543,6 +222,6 @@
                 <a href="https://qamar.uz/"><button class="button" type="submit">XARID QILISH</button></a>
             </div>
         </div>
-    </div>
+    </div> -->
 
 {% endblock content %}

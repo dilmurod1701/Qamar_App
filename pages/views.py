@@ -1,23 +1,24 @@
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import ad, salomatlik, kitoblar, quron, offis, ibodat, sovga, parfyum, gozallik
+from .models import ad , salomatlik, kitoblar, quron, offis, ibodat, sovga, parfyum, gozallik
 # Create your views here.
 
 
 class Home(ListView):
     model = ad
     template_name = 'pages/index.html'
-    context_object_name = 'ad'
+    context_object_name = 'item'
+
 
 
 class Detail(DetailView):
     model = ad
     template_name = 'pages/detail.html'
-    context_object_name = 'ad'
+    context_object_name = 'item'
+
+
 # Categories
-
-
 class Salomatlik(ListView):
     model = salomatlik
     template_name = 'pages/salomatlik.html'
