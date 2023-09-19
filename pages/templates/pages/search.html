@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <link rel="stylesheet" href="{% static 'pages/search.css' %}">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+{% if searched %}
+    <h2 class="search-h2">Sizning so'rovingiz bo'yicha: </h2>
+    {% for i in item %}
+    <div class="search-container">
+        
+            <img src="{{ i.product_img.url }}" alt="" class="search-img">
+            <a href="{% url 'detail' i.id %}" class="search-a">
+                <p class="search-title">
+                    Nom: {{ i.product_name }}
+                </p>
+            </a>
+            <a href="{% url 'detail' i.id %}">
+                <p class="search-price">
+                Narx: {{i.price}} so'm
+            </p></a>
+    </div>
+    {% endfor %}
+{% else %}
+    <p class="search-h2">
+        Sizning so'rovingiz bo'yicha hech nima topilmadi!
+    </p>
+{% endif %}
+</body>
+</html>
