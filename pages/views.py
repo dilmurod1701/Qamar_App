@@ -18,6 +18,15 @@ class Detail(DetailView):
     context_object_name = 'item'
 
 
+def SearchViews(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        item = ad.objects.filter(product_name__contains=searched)
+        return render(request, 'pages/search.html', {'searched' : searched, 'item' : item})
+    else:
+        return render(request, 'pages/search.html')
+
+
 # Categories
 class Salomatlik(ListView):
     model = salomatlik
