@@ -14,15 +14,16 @@
 {% block content %}
 <div class="header">
     <div class="header-bottom">
-        <div class="top-bar-items">
-            <a href="new/"><i class="fa-solid fa-square-plus top-bar-icons"></i></a>
-            <a href=""><i class="fa-regular fa-bookmark top-bar-icons"></i></a>
-            <a href=""><i class="fa-solid fa-cart-shopping top-bar-icons"></i></a>
-            <a href="signup/">Sign Up</a>
-        </div>
-        <div class="top-bar-items">
-            <input class="search" type="search" placeholder="Search"><i class="fa-solid fa-magnifying-glass"></i>
-        </div>
+    <div class="header-bar  top-bar-items">
+        <a href="new/"><i class="fa-solid fa-square-plus top-bar-icons"></i></a>
+        <a href=""><i class="fa-regular fa-bookmark top-bar-icons"></i></a>
+        <a href=""><i class="fa-solid fa-cart-shopping top-bar-icons"></i></a>
+        <a href="signup/">Sign Up</a>
+
+        <form action="search/" method="POST">
+            {% csrf_token %}
+            <input class="search" type="search" placeholder="Search" name="searched"><button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
     </div>
 </div>
 
