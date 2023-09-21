@@ -1,23 +1,35 @@
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
 
-from .models import ad, salomatlik, kitoblar, quron, offis, ibodat, sovga, parfyum, gozallik
+
+from .models import ad , salomatlik, kitoblar, quron, offis, ibodat, sovga, parfyum, gozallik
 # Create your views here.
 
 
 class Home(ListView):
     model = ad
     template_name = 'pages/index.html'
-    context_object_name = 'ad'
+    context_object_name = 'item'
+
 
 
 class Detail(DetailView):
     model = ad
     template_name = 'pages/detail.html'
-    context_object_name = 'ad'
+    context_object_name = 'item'
+
+
+def SearchViews(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        item = ad.objects.filter(product_name__contains=searched)
+        return render(request, 'pages/search.html', {'searched' : searched, 'item' : item})
+    else:
+        return render(request, 'pages/search.html')
+
+
 # Categories
-
-
 class Salomatlik(ListView):
     model = salomatlik
     template_name = 'pages/salomatlik.html'
