@@ -1,7 +1,7 @@
 {% extends 'pages/base.html' %}
 
 {% block heading %}
-    <title>OLX</title>
+    <title>e Bazar</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,60 +18,12 @@
         <a href="new/"><i class="fa-solid fa-square-plus top-bar-icons"></i></a>
         <a href=""><i class="fa-regular fa-bookmark top-bar-icons"></i></a>
         <a href=""><i class="fa-solid fa-cart-shopping top-bar-icons"></i></a>
-        <a href="signup/">Sign Up</a>
+        <a href="register/">Sign Up</a>
 
         <form action="search/" method="POST">
             {% csrf_token %}
             <input class="search" type="search" placeholder="Search" name="searched"><button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
-    </div>
-</div>
-
-<div>
-    <div class="main-card">
-        <div class="card">
-            <a href="{% url 'quron' %}">
-                <img src="https://qamar.uz/cdn/shop/files/Group_7_180x.png?v=1671615373">
-                <p>Qur'oni Karim</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="{% url 'kitoblar' %}">
-                <img src="https://qamar.uz/cdn/shop/files/Group_8_180x.png?v=1671615373">
-                <p class="kitoblar">Kitoblar</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="{% url 'ibodat' %}">
-                <img src="https://qamar.uz/cdn/shop/files/Group_9_180x.png?v=1671615373">
-                <p>Ibodat anjomlari</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="{% url 'uyoffis' %}">
-                <img src="https://qamar.uz/cdn/shop/files/Group_10_180x.png?v=1671615373">
-                <p>Uy va ofis uchun</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="{% url 'sovga' %}">
-                <img src="https://qamar.uz/cdn/shop/files/Group_11_180x.png?v=1671615373">
-                <p>Sovg'a to'plamlari</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="{% url 'parfyum' %}">
-                <img src="https://qamar.uz/cdn/shop/files/Photo_1_180x.png?v=1671615416">
-                <p>Parfyum va kasmetika</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="{% url 'gozallik' %}">
-                <img src="https://qamar.uz/cdn/shop/files/Photo-1_180x.png?v=1671615416">
-                <p>Go'zallik</p>
-            </a>
-        </div>
-
     </div>
 </div>
 

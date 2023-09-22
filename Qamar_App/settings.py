@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'Qamar_App.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'asaxiy',
+        'NAME': 'django',
         'USER': 'postgres',
-        'PASSWORD': 'hacker',
+        'PASSWORD': '456456',
         'HOST': 'localhost',
     }
 }

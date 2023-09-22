@@ -1,7 +1,6 @@
 {% extends 'pages/base.html' %}
 
 {% block heading %}
-<title>Detail Page</title>
 <!-- cdn fontgoogle -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +30,7 @@
 <div class="head-container">
     <img src="{{ item.product_img.url }}" alt="" class="head-img">
     <div class="head-info">
-        <p class="head-p">{{ item.description }}</p>
+        <p class="head-p">{{ item.product_name }}</p>
         <p class="star"><i class="star fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
         <p class="price">{{ item.price }} so'm</p>
         <p class="model">Yashash Joyi: {{ item.location }}</p>
