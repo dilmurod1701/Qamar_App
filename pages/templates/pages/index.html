@@ -1,5 +1,5 @@
 {% extends 'pages/base.html' %}
-
+{% load static %}
 {% block heading %}
     <title>e Bazar</title>
 
@@ -7,25 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<!-- css -->
+<link rel="stylesheet" href="{% static 'pages/main.css' %}">
 
 {% endblock heading %}
 
 
 {% block content %}
-<div class="header">
-    <div class="header-bottom">
-    <div class="header-bar  top-bar-items">
-        <a href="new/"><i class="fa-solid fa-square-plus top-bar-icons"></i></a>
-        <a href=""><i class="fa-regular fa-bookmark top-bar-icons"></i></a>
-        <a href=""><i class="fa-solid fa-cart-shopping top-bar-icons"></i></a>
-        <a href="register/">Sign Up</a>
-
-        <form action="search/" method="POST">
-            {% csrf_token %}
-            <input class="search" type="search" placeholder="Search" name="searched"><button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-    </div>
-</div>
 
 <div class="tavsiya">
     <h1 class="text">Yangi mahsulotar</h1>
@@ -43,138 +31,17 @@
                         <i class="fa-solid fa-star"></i>
                     </p>
                 </div>
-            <div class="price">
+                <div class="price">
                 <p>{{ i.price }} so'm</p>
-            </div>
-                <a href="ad/{{ i.id }}"><button class="button" type="submit">XARID QILISH</button></a>
+                </div>
+                <div class="bottom-item">
+                    <a href="ad/{{ i.id }}"><button class="button" type="submit">XARID QILISH</button></a>
+                    <a href=""><i class="fa-solid fa-cart-plus bottom-cart"></i></a>
+                </div>    
+                
             </div>
         {% endfor %}
     </div>
 </div>
-
-    <!-- <div class="kopsotilgan">
-        <h1 class="text">Eng kop sotilgan</h1>
-        <div>
-            <div class="ad-card">
-                <div>
-                    <img src="https://qamar.uz/cdn/shop/products/5d0bfe6d-3f96-40cb-a4e3-722ea18f1c9b_360x.jpg?v=1678092795">
-                </div>
-                <div>
-                <a class="detail" href=""><p class="des">Mening ramazon...</p></a>
-                </div>
-                <div class="stars">
-                    <p>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
-                </div>
-            <div class="price">
-                <p>
-                    58 000 so'm
-                </p>
-            </div>
-                <a href=""><button class="button" type="submit">XARID QILISH</button></a>
-            </div>
-
-            <div class="ad-card">
-                <div>
-                    <img src="https://qamar.uz/cdn/shop/files/Halqa_360x.png?v=1685514927">
-                </div>
-                <div>
-                <a class="detail" href=""><p class="des">Xalqa</p></a>
-                </div>
-                <div class="stars">
-                    <p>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
-                </div>
-            <div class="price">
-                <p>
-                    60 000 so'm
-                </p>
-            </div>
-                <a href=""><button class="button" type="submit">XARID QILISH</button></a>
-            </div>
-
-            <div class="ad-card">
-                <div>
-                    <img src="https://qamar.uz/cdn/shop/files/Tongisuhbatlar_360x.png?v=1685520110">
-                </div>
-                <div>
-                <a class="detail" href=""><p class="des">Tonggi suhbatlar</p></a>
-                </div>
-                <div class="stars">
-                    <p>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
-                </div>
-            <div class="price">
-                <p>
-                    45 000 so'm
-                </p>
-            </div>
-                <a href=""><button class="button" type="submit">XARID QILISH</button></a>
-            </div>
-
-            <div class="ad-card">
-                <div>
-                    <img src="https://qamar.uz/cdn/shop/products/1a812c07-018d-46ae-afb2-78ddddf2367b_360x.jpg?v=1678092980">
-                </div>
-                <div>
-                <a class="detail" href=""><p class="des">Islom umatining...</p></a>
-                </div>
-                <div class="stars">
-                    <p>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
-                </div>
-            <div class="price">
-                <p>
-                    138,000 so'm
-                </p>
-            </div>
-                <a href=""><button class="button" type="submit">XARID QILISH</button></a>
-            </div>
-
-            <div class="ad-card">
-                <div>
-                    <img src="https://qamar.uz/cdn/shop/files/qalb_360x.png?v=1682596197">
-                </div>
-                <div>
-                <a class="detail" href=""><p class="des">Qalb iffati</p></a>
-                </div>
-                <div class="stars">
-                    <p>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
-                </div>
-            <div class="price">
-                <p>
-                    42 000 so'm
-                </p>
-            </div>
-                <a href="https://qamar.uz/"><button class="button" type="submit">XARID QILISH</button></a>
-            </div>
-        </div>
-    </div> -->
 
 {% endblock content %}
