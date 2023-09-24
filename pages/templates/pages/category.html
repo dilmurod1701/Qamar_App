@@ -1,0 +1,44 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block heading %}
+    <title>Category</title>
+<link rel="stylesheet" href="{% static 'pages/main.css' %}">
+
+{% endblock heading %}
+
+
+{% block content %}
+    {% for each in cat_menu %}
+        <a class="dropdown-item" href="{% url 'category' each %}">
+            {{ each }}
+        </a>
+    {% endfor %}
+
+    {% if category_post %}
+        <h1>{{ cats }}</h1>
+        {% for post in category_post %}
+            <div class="ad-card">
+                <img src="{{ post.product_img.url }}">
+                <a class="detail" href="{% url 'detail' post.pk %}"><p class="des">{{ post.product_name }}</p></a>
+                <div class="stars">
+                    <p>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </p>
+                </div>
+                <div class="price">
+                <p>{{ post.price }} so'm</p>
+                </div>
+                <div class="bottom-item">
+                    <a href="ad/{{ i.id }}"><button class="button" type="submit">XARID QILISH</button></a>
+                    <a href=""><i class="fa-solid fa-cart-plus bottom-cart"></i></a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h2>Sorry this page does not exist...</h2>
+    {% endif %}
+{% endblock content %}
