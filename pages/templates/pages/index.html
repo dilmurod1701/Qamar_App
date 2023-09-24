@@ -9,19 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 <!-- css -->
 <link rel="stylesheet" href="{% static 'pages/main.css' %}">
-
 {% endblock heading %}
 
 
 {% block content %}
-
 <div class="tavsiya">
     <h1 class="text">Yangi mahsulotar</h1>
     <div>
         {% for i in item %}
             <div class="ad-card">
                 <img src="{{ i.product_img.url }}">
-                <a class="detail" href="ad/{{ i.id }}"><p class="des">{{ i.product_name }}</p></a>
+                <a class="detail" href="{% url 'detail' i.pk %}"><p class="des">{{ i.product_name }}</p></a>
                 <div class="stars">
                     <p>
                         <i class="fa-solid fa-star"></i>
@@ -33,9 +31,10 @@
                 </div>
                 <div class="price">
                 <p>{{ i.price }} so'm</p>
+                <p>{{ products.category }}</p>
                 </div>
                 <div class="bottom-item">
-                    <a href="ad/{{ i.id }}"><button class="button" type="submit">XARID QILISH</button></a>
+                    <a href="products/{{ i.id }}"><button class="button" type="submit">XARID QILISH</button></a>
                     <a href=""><i class="fa-solid fa-cart-plus bottom-cart"></i></a>
                 </div>    
                 
