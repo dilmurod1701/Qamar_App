@@ -2,93 +2,54 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 
+from .models import products, salomatlik, kitoblar, quron, offis, ibodat, sovga, parfyum, gozallik, Category
+from .forms import PostForm
 
-from .models import ad , salomatlik, kitoblar, quron, offis, ibodat, sovga, parfyum, gozallik
 # Create your views here.
 
 
 class Home(ListView):
-    model = ad
+    model = products
     template_name = 'pages/index.html'
     context_object_name = 'item'
 
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = Category.objects.all()
+        context = super(Home, self).get_context_data(*args, **kwargs)
+        context['cat_menu'] = cat_menu
+        return context
+
+
+def CategoryView(request, cats):
+    category_post = products.objects.filter(category=cats)
+    return render(request, 'pages/category.html', {'cats': cats, 'category_post': category_post})
 
 
 class Detail(DetailView):
-    model = ad
+    model = products
     template_name = 'pages/detail.html'
     context_object_name = 'item'
 
-
-def SearchViews(request):
-    if request.method == 'POST':
-        searched = request.POST['searched']
-        item = ad.objects.filter(product_name__contains=searched)
-        return render(request, 'pages/search.html', {'searched' : searched, 'item' : item})
-    else:
-        return render(request, 'pages/search.html')
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = Category.objects.all()
+        context = super(Detail, self).get_context_data(*args, **kwargs)
+        context['cat_menu'] = cat_menu
+        return context
 
 
-# Categories
-class Salomatlik(ListView):
-    model = salomatlik
-    template_name = 'pages/salomatlik.html'
-    context_object_name = 'salomatlik'
-
-# rahmatjon
 class Post(LoginRequiredMixin, CreateView):
-    model = ad
-    fields = ['product_img', 'product_name', 'description', 'price', 'location', 'phone_number']
+    model = products
+    form_class = PostForm
+    # fields = ['product_img', 'product_name', 'description', 'category', 'price', 'location', 'phone_number']
     template_name = 'pages/posts.html'
     success_url = '/'
     login_url = 'login'
 
 
-class Kitoblar(ListView):
-    model = kitoblar
-    template_name = 'pages/kitoblar.html'
-    context_object_name = 'kitoblar'
-
-
-class Quron(ListView):
-    model = quron
-    template_name = 'pages/quron.html'
-    context_object_name = 'quron'
-
-
-class UyOffis(ListView):
-    model = offis
-    template_name = 'pages/offis.html'
-    context_object_name = 'offis'
-
-
-class Ibodat(ListView):
-    model = ibodat
-    template_name = 'pages/ibodat.html'
-    context_object_name = 'ibodat'
-
-
-class Sovga(ListView):
-    model = sovga
-    template_name = 'pages/sovga.html'
-    context_object_name = 'sovga'
-
-
-class Parfyum(ListView):
-    model = parfyum
-    template_name = 'pages/parfyum.html'
-    context_object_name = 'parfyum'
-
-
-class Gozallik(ListView):
-    model = gozallik
-    template_name = 'pages/gozallik.html'
-    context_object_name = 'gozallik'
-
-
-# DetailView
-class SalomatlikDetail(DetailView):
-    model = salomatlik
-    template_name = 'pages/salomatlikdetail.html'
-    context_object_name = 'salomatlik'
-
+def SearchViews(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        item = products.objects.filter(product_name__contains=searched)
+        return render(request, 'pages/search.html', {'searched': searched, 'item': item})
+    else:
+        return render(request, 'pages/search.html')
