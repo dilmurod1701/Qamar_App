@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 
-from .models import products, salomatlik, kitoblar, quron, offis, ibodat, sovga, parfyum, gozallik, Category
+from .models import products, Category
 from .forms import PostForm
 
 # Create your views here.
