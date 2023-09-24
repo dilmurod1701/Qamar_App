@@ -125,6 +125,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Email settings
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIl_PORT = 587
+EMAIL_HOST_USER = 'backendchi.bollar.no1@gmail.com'
+EMAIL_HOST_PASSWORD = 'pnxy frcg yjfr jyfo'
+
+# pnxy frcg yjfr jyfo
 
 # media
 MEDIA_ROOT = BASE_DIR / 'media'
