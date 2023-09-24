@@ -33,7 +33,7 @@
                 <p>{{ post.price }} so'm</p>
                 </div>
                 <div class="bottom-item">
-                    <a href="ad/{{ i.id }}"><button class="button" type="submit">XARID QILISH</button></a>
+                    <a href="{% url 'detail' post.pk %}"><button class="button" type="submit">XARID QILISH</button></a>
                     <a href=""><i class="fa-solid fa-cart-plus bottom-cart"></i></a>
                 </div>
             </div>
