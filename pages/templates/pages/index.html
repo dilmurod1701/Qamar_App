@@ -1,0 +1,47 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block heading %}
+    <title>e Bazar</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<!-- css -->
+<link rel="stylesheet" href="{% static 'pages/main.css' %}">
+
+{% endblock heading %}
+
+
+{% block content %}
+
+<div class="tavsiya">
+    <h1 class="text">Yangi mahsulotar</h1>
+    <div>
+        {% for i in item %}
+            <div class="ad-card">
+                <img src="{{ i.product_img.url }}">
+                <a class="detail" href="ad/{{ i.id }}"><p class="des">{{ i.product_name }}</p></a>
+                <div class="stars">
+                    <p>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </p>
+                </div>
+                <div class="price">
+                <p>{{ i.price }} so'm</p>
+                </div>
+                <div class="bottom-item">
+                    <a href="ad/{{ i.id }}"><button class="button" type="submit">XARID QILISH</button></a>
+                    <a href=""><i class="fa-solid fa-cart-plus bottom-cart"></i></a>
+                </div>    
+                
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
