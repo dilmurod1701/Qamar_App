@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,18 +12,37 @@
     {% block heading %} {% endblock heading %}
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
     <div class="nav">
         <div class="nav-tools">
             <a class="nav-a" href="new/"><i class="fa-solid fa-square-plus "> Add</i></a>
             <a class="nav-a" href=""><i class="fa-regular fa-bookmark "> save(¬)</i></a>
             <a class="nav-a" href=""><i class="fa-solid fa-cart-shopping "> Cart</i></a>
         </div>
-    
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categories
+          </a>
+          <ul class="dropdown-menu">
+            {% for each in cat_menu %}
+                <a class="dropdown-item" href="{% url 'category' each %}">
+                    {{ each }}
+                </a>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+</nav>
+
         <form class="nav-a" action="search/" method="POST">
             {% csrf_token %}
             <input class="search" type="search" placeholder="Search" name="searched"><button class="button-search" type="submit"><i class="fa-brands fa-searchengin search-glass"></i></button>
         </form>
-        <a class="nav-a" href="register/">Sign Up</a>
+        <a class="nav-a" href="login/">Sign Up</a>
     
     </div>
     {% block content %}{% endblock content %}
