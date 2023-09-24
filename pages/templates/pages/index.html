@@ -14,7 +14,15 @@
 
 
 {% block content %}
-
+<form class="nav-a" action="search/" method="POST">
+    {% csrf_token %}
+    <input class="search" type="search" placeholder="Search" name="searched"><button class="button-search" type="submit"><i class="fa-brands fa-searchengin search-glass"></i></button>
+</form>
+{% if user.is_authenticated %}
+    <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-danger">Logout</button></a>
+{% else %}
+    <a class="nav-a" href="register/">Sign Up</a>
+{% endif %}
 <div class="tavsiya">
     <h1 class="text">Yangi mahsulotar</h1>
     <div>
