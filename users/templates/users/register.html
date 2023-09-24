@@ -128,27 +128,37 @@
     <div class="wrapper">
         <form method="post">
             {% csrf_token %}
-            {{ form.as_table }}
-<!--            <button class="btn" type="submit"> <a href="{% url 'home' %}">Sign In</a></button>-->
             <h1>
                 Create Account
             </h1>
             <div class="input-box">
-<!--                <input type="text" placeholder="Username" name="username_input" class="inputone" required>-->
-
+                {{ form.last_name }}
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-<!--                <input type="email" placeholder="Email" name="email_input" class="inputone" required>-->
+                {{ form.first_name }}
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                {{ form.username }}
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                {{ form.email }}
                 <i class='bx bxs-envelope'></i>
             </div>
             <div class="input-box">
-<!--                <input type="password" name="password_input" placeholder="Password" required>-->
+                {{ form.password1 }}
                 <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="input-box">
+<!--                <input type="password" name="password_input" placeholder="Password" required>-->
+                {{ form.password2 }}
+                <i class='bx bxs-lock-alt'></i>           
             </div>
             <button class="btn" type="submit"> <a href="{% url 'home' %}">Sign In</a></button>
             <div class="register-link">
-                <p>Have an account? <a href="{% url 'login' %}"></a></p>
+                <p>Have an account? <a href="{% url 'login' %}">Login</a></p>
             </div>
         </form>
     </div>
