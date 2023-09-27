@@ -16,8 +16,18 @@ class Category(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+class ProfileModel(models.Model):
+    author = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    local = models.CharField(max_length=80)
+    Pnumber = models.CharField(max_length=17)
+
+    def __str__(self):
+        return self.name
+
 
 class products(models.Model):
+    auth = models.ForeignKey(ProfileModel, on_delete=models.CASCADE)
     product_img = models.ImageField(upload_to='images/')
     product_name = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
